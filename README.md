@@ -1,4 +1,4 @@
-AMIDST
+AMIDST 2^48, a Minecraft stronghold duplication and seed finding tool.
 ======
 
 Advanced Minecraft Interface and Data/Structure Tracking
