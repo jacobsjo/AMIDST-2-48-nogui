@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.io.*;
 
 import amidst.Options;
 import amidst.map.Fragment;
@@ -16,60 +17,60 @@ import amidst.version.VersionInfo;
 
 public class StrongholdLayer extends IconLayer {
 	public static StrongholdLayer instance;
-	
+
 	private static final Biome[] biomesDefault = {
-		Biome.desert, 
-		Biome.forest, 
+		Biome.desert,
+		Biome.forest,
 		Biome.extremeHills,
 		Biome.swampland
 	};
 	private static final Biome[] biomes1_0 = {
-		Biome.desert, 
+		Biome.desert,
 		Biome.forest,
-		Biome.extremeHills, 
-		Biome.swampland, 
-		Biome.taiga, 
-		Biome.icePlains, 
+		Biome.extremeHills,
+		Biome.swampland,
+		Biome.taiga,
+		Biome.icePlains,
 		Biome.iceMountains
 	};
 	private static final Biome[] biomes1_1 = {
-		Biome.desert, 
-		Biome.forest, 
-		Biome.extremeHills, 
-		Biome.swampland, 
-		Biome.taiga, 
-		Biome.icePlains, 
-		Biome.iceMountains, 
-		Biome.desertHills, 
-		Biome.forestHills, 
+		Biome.desert,
+		Biome.forest,
+		Biome.extremeHills,
+		Biome.swampland,
+		Biome.taiga,
+		Biome.icePlains,
+		Biome.iceMountains,
+		Biome.desertHills,
+		Biome.forestHills,
 		Biome.extremeHillsEdge
 	};
 	private static final Biome[] biomes12w03a = {
 		Biome.desert,
-		Biome.forest, 
+		Biome.forest,
 		Biome.extremeHills,
-		Biome.swampland, 
-		Biome.taiga, 
-		Biome.icePlains, 
-		Biome.iceMountains, 
-		Biome.desertHills, 
+		Biome.swampland,
+		Biome.taiga,
+		Biome.icePlains,
+		Biome.iceMountains,
+		Biome.desertHills,
 		Biome.forestHills,
-		Biome.extremeHillsEdge, 
-		Biome.jungle, 
+		Biome.extremeHillsEdge,
+		Biome.jungle,
 		Biome.jungleHills
 	};
-	
+
 	private MapObjectStronghold[] strongholds = new MapObjectStronghold[3];
-	
+
 	public StrongholdLayer() {
 		instance = this;
 	}
-	
+
 	@Override
 	public boolean isVisible() {
-		return Options.instance.showStrongholds.get();		
+		return Options.instance.showStrongholds.get();
 	}
-	
+
 	@Override
 	public void generateMapObjects(Fragment frag) {
 		int size = Fragment.SIZE >> 4;
@@ -84,12 +85,12 @@ public class StrongholdLayer extends IconLayer {
 			}
 		}
 	}
-	 
+
 	public void findStrongholds() {
 		Random random = new Random();
 		random.setSeed(Options.instance.seed);
-		
-		
+
+
 		// TODO: Replace this system!
 		Biome[] validBiomes = biomesDefault;
 		if (MinecraftUtil.getVersion() == VersionInfo.V1_9pre6 || MinecraftUtil.getVersion() == VersionInfo.V1_0)
@@ -100,7 +101,7 @@ public class StrongholdLayer extends IconLayer {
 			validBiomes = biomes12w03a;
 
 		List<Biome> biomeArrayList = Arrays.asList(validBiomes);
-		
+
 		if (MinecraftUtil.getVersion().isAtLeast(VersionInfo.V13w36a)) {
 			biomeArrayList = new ArrayList<Biome>();
 			for (int i = 0; i < Biome.biomes.length; i++) {
@@ -109,7 +110,7 @@ public class StrongholdLayer extends IconLayer {
 				}
 			}
 		}
-		
+
 		double angle = random.nextDouble() * 3.141592653589793D * 2.0D;
 		for (int i = 0; i < 3; i++) {
 			double distance = (1.25D + random.nextDouble()) * 32.0D;
@@ -117,11 +118,17 @@ public class StrongholdLayer extends IconLayer {
 			int y = (int)Math.round(Math.sin(angle) * distance);
 
 
-			
+
 			Point strongholdLocation = MinecraftUtil.findValidLocation((x << 4) + 8, (y << 4) + 8, 112, biomeArrayList, random);
 			if (strongholdLocation != null) {
 				x = strongholdLocation.x >> 4;
 				y = strongholdLocation.y >> 4;
+				try{
+                PrintWriter p=new PrintWriter(new BufferedWriter(new FileWriter("log.txt",true)),true);
+                p.print(x<<4);
+                p.print(" ");
+                p.println(y<<4);
+                    p.close();}catch(Exception e){}
 			}
 			strongholds[i] = new MapObjectStronghold((x << 4), (y << 4));
 			angle += 6.283185307179586D / 3.0D;
@@ -137,11 +144,11 @@ public class StrongholdLayer extends IconLayer {
 		}
 		return false;
 	}
-	
+
 	public MapObjectStronghold[] getStrongholds() {
 		return strongholds;
 	}
-	
+
 	@Override
 	public void reload() {
 		findStrongholds();
