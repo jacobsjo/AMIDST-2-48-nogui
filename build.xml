@@ -38,12 +38,12 @@
     <!-- Create the distribution directory -->
     <mkdir dir="${dist}/"/>
 
-    <manifestclasspath property="lib.list" jarfile="${dist}/amidst.jar">
+    <manifestclasspath property="lib.list" jarfile="${dist}/amidst 2^48.jar">
       <classpath refid="libs.class.path" />
     </manifestclasspath>
 
     <!-- Put everything in ${build} into the jar file -->
-    <jar jarfile="${dist}/amidst.jar" basedir="${build}">
+    <jar jarfile="${dist}/amidst 2^48.jar" basedir="${build}">
       <manifest>
         <attribute name="Main-Class" value="amidst.Amidst"/>
         <attribute name="Class-Path" value=". ${lib.list}"/>
@@ -64,6 +64,6 @@
 
   <target name="run" description="runs amidst" depends="jar">
     <!-- Run amidst -->
-    <java fork="true" jar="${dist}/amidst.jar" />
+    <java fork="true" jar="${dist}/amidst 2^48.jar" />
   </target>
 </project>
