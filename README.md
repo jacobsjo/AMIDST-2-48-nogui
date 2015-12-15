@@ -3,8 +3,9 @@ AMIDST 2^48-nogui, a Minecraft stronghold finder and duplication tool.
 
 How tu use it:
 --------------
--As AMIDST 2^48-nogui has no gui (thats ovious isn't it?), you have to specify the minecraft jar file using the -mcjar command line Parameter. Aditionally a -output file has to be specified.
--This Tool has 2 modes:
+
++ As AMIDST 2^48-nogui has no gui (thats ovious isn't it?), you have to specify the minecraft jar file using the -mcjar command line Parameter. Aditionally a -output file has to be specified.
++ This Tool has 2 modes:
   1. if called with:
      ```
        -seed <baseseed> -x <Chunk X Pos> -z <Chunk Z Pos>
