@@ -150,7 +150,7 @@ public class Amidst {
 				}
 				strongholdPositions.add(new Point(Integer.parseInt(tokens[2]), Integer.parseInt(tokens[3])));
 			}
-			check(Long.parseLong(tokens[0]), strongholdPositions, 10000, false, bw, Integer.parseInt(tokens[1]));
+			check(Long.parseLong(tokens[0]), strongholdPositions, 20000, false, bw, Integer.parseInt(tokens[1]));
 		} catch (NumberFormatException | IOException e) {
 			e.printStackTrace();
 		} finally {
