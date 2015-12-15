@@ -4,8 +4,8 @@ import java.awt.Point;
 import java.util.List;
 import java.util.Random;
 
+import amidst.Options;
 import amidst.logging.Log;
-import amidst.version.VersionInfo;
 
 public class MinecraftUtil {
 	private static IMinecraftInterface minecraftInterface;
@@ -74,6 +74,7 @@ public class MinecraftUtil {
 	}
 	
 	public static void createWorld(long seed, String type) {
+		Options.instance.seed = seed;
 		minecraftInterface.createWorld(seed, type, "");
 	}
 	
@@ -83,9 +84,6 @@ public class MinecraftUtil {
 	
 	public static void setBiomeInterface(IMinecraftInterface biomeInterface) {
 		MinecraftUtil.minecraftInterface = biomeInterface;
-	}
-	public static VersionInfo getVersion() {
-		return minecraftInterface.getVersion();
 	}
 
 	public static boolean hasInterface() {

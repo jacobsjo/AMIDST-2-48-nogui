@@ -9,7 +9,6 @@ import com.esotericsoftware.kryonet.Listener;
 
 import amidst.minecraft.Biome;
 import amidst.minecraft.IMinecraftInterface;
-import amidst.version.VersionInfo;
 
 public class RemoteMinecraft implements IMinecraftInterface {
 	Client client;
@@ -75,10 +74,5 @@ public class RemoteMinecraft implements IMinecraftInterface {
 	@Override
 	public void createWorld(long seed, String type, String generatorOptions) {
 		client.sendTCP(new NetCreateWorldRequest(seed));
-	}
-
-	@Override
-	public VersionInfo getVersion() {
-		return VersionInfo.unknown;
 	}
 }

@@ -3,10 +3,8 @@ package amidst.logging;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.HashMap;
-import javax.swing.JOptionPane;
 
-import MoF.FinderWindow;
-import amidst.gui.CrashDialog;
+import javax.swing.JOptionPane;
 
 public class Log {
 	private static Object logLock = new Object();
@@ -94,9 +92,6 @@ public class Log {
 					listener.crash(e, exceptionText, message);
 			
 			
-			new CrashDialog(message);
-			if (FinderWindow.instance != null)
-				FinderWindow.instance.dispose();
 			//System.exit(0);
 		}
 	}

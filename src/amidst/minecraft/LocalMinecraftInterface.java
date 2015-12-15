@@ -1,10 +1,7 @@
 package amidst.minecraft;
 
-import java.lang.reflect.Field;
-
+import amidst.Type;
 import amidst.logging.Log;
-import amidst.version.VersionInfo;
-import MoF.SaveLoader.Type;
 
 public class LocalMinecraftInterface implements IMinecraftInterface {
 	private Minecraft minecraft;
@@ -36,8 +33,8 @@ public class LocalMinecraftInterface implements IMinecraftInterface {
 
 	@Override
 	public void createWorld(long seed, String typeName, String generatorOptions) {
-		Log.debug("Attempting to create world with seed: " + seed + ", type: " + typeName + ", and the following generator options:");
-		Log.debug(generatorOptions);
+		//Log.debug("Attempting to create world with seed: " + seed + ", type: " + typeName + ", and the following generator options:");
+		//Log.debug(generatorOptions);
 		
 		// Minecraft 1.8 and higher require block initialization to be called before creating a biome generator.
 		MinecraftClass blockInit;
@@ -64,10 +61,6 @@ public class LocalMinecraftInterface implements IMinecraftInterface {
 		biomeGen_fullResolution = new MinecraftObject(genLayerClass, genLayers[1]);
 	}
 
-	@Override
-	public VersionInfo getVersion() {
-		return minecraft.version;
-	}
 
 
 }

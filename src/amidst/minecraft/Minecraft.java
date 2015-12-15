@@ -31,7 +31,6 @@ import amidst.bytedata.ClassChecker;
 import amidst.json.JarLibrary;
 import amidst.json.JarProfile;
 import amidst.logging.Log;
-import amidst.version.VersionInfo;
 
 public class Minecraft {
 	private static final int MAX_CLASSES = 128;
@@ -112,7 +111,6 @@ public class Minecraft {
 	private Vector<String> byteClassNames;
 	
 	public String versionId;
-	public VersionInfo version = VersionInfo.unknown;
 	
 	public Minecraft(File jarFile)  throws MalformedURLException {
 		this.jarFile = jarFile;
@@ -208,15 +206,7 @@ public class Minecraft {
 			if (typeString.startsWith("class ") && !typeString.contains("."))
 				typeDump += typeString.substring(6);
 		}
-		versionId = typeDump;
-		for (VersionInfo v : VersionInfo.values()) {
-			if (versionId.equals(v.versionId)) {
-				version = v;
-				break;
-			}
-		}
 
-		Log.i("Identified Minecraft [" + version.name() + "] with versionID of " + versionId);
 		Log.i("Loading classes...");
 		nameMap = new HashMap<String, MinecraftClass>();
 		classMap = new HashMap<String, MinecraftClass>();

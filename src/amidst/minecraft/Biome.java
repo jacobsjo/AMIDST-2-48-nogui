@@ -7,37 +7,43 @@ import amidst.Util;
 public class Biome {
 	public static final HashMap<String,Biome> biomeMap = new HashMap<String,Biome>();
 	public static final BiomeType typeA = new BiomeType(0.1F, 0.2F);
-	public static final BiomeType typeB = new BiomeType(-0.5F, 0.0F);
-	public static final BiomeType typeC = new BiomeType(-1.0F, 0.1F);
-	public static final BiomeType typeD = new BiomeType(-1.8F, 0.1F);
+	public static final BiomeType typeB = new BiomeType(-0.5F, 0.0F);  //#
+	public static final BiomeType typeC = new BiomeType(-1.0F, 0.1F);  //#
+	public static final BiomeType typeD = new BiomeType(-1.8F, 0.1F);  //#
 	public static final BiomeType typeE = new BiomeType(0.125F, 0.05F);
 	public static final BiomeType typeF = new BiomeType(0.2F, 0.2F);
 	public static final BiomeType typeG = new BiomeType(0.45F, 0.3F);
 	public static final BiomeType typeH = new BiomeType(1.5F, 0.025F);
 	public static final BiomeType typeI = new BiomeType(1.0F, 0.5F);
-	public static final BiomeType typeJ = new BiomeType(0.0F, 0.025F);
+	public static final BiomeType typeJ = new BiomeType(0.0F, 0.025F); //#
 	public static final BiomeType typeK = new BiomeType(0.1F, 0.8F);
 	public static final BiomeType typeL = new BiomeType(0.2F, 0.3F);
-	public static final BiomeType typeM = new BiomeType(-0.2F, 0.1F);
+	public static final BiomeType typeM = new BiomeType(-0.2F, 0.1F);  //#
 	
 	public static final Biome[] biomes = new Biome[256];
-	public static final Biome ocean				   = new Biome("Ocean",				     0, Util.makeColor(0, 0, 112),	     typeC);
+	public static final Biome ocean				   = new Biome("Ocean",				     0, Util.makeColor(0, 0, 112),	     typeC); //#
 	public static final Biome plains			   = new Biome("Plains",				 1, Util.makeColor(141, 179, 96),	 typeA);
 	public static final Biome desert			   = new Biome("Desert",				 2, Util.makeColor(250, 148, 24),	 typeE);
 	public static final Biome extremeHills		   = new Biome("Extreme Hills",		     3, Util.makeColor(96, 96, 96),	     typeI);
 	public static final Biome forest			   = new Biome("Forest",				 4, Util.makeColor(5, 102, 33),	     typeA);
 	public static final Biome taiga			  	   = new Biome("Taiga",				     5, Util.makeColor(11, 102, 89),	 typeF);
-	public static final Biome swampland			   = new Biome("Swampland",			     6, Util.makeColor(7, 249, 178),	 typeM);
-	public static final Biome river				   = new Biome("River",				     7, Util.makeColor(0, 0, 255),	     typeB);
+	
+	public static final Biome swampland			   = new Biome("Swampland",			     6, Util.makeColor(7, 249, 178),	 typeM); //#
+	public static final Biome river				   = new Biome("River",				     7, Util.makeColor(0, 0, 255),	     typeB); //#
+	
 	public static final Biome hell				   = new Biome("Hell",				     8, Util.makeColor(255, 0, 0),	     typeA);
 	public static final Biome sky				   = new Biome("Sky",					 9, Util.makeColor(128, 128, 255),   typeA);
-	public static final Biome frozenOcean		   = new Biome("Frozen Ocean",		    10, Util.makeColor(144, 144, 160),   typeC);
-	public static final Biome frozenRiver		   = new Biome("Frozen River",		    11, Util.makeColor(160, 160, 255),   typeB);
+	
+	public static final Biome frozenOcean		   = new Biome("Frozen Ocean",		    10, Util.makeColor(144, 144, 160),   typeC); //#
+	public static final Biome frozenRiver		   = new Biome("Frozen River",		    11, Util.makeColor(160, 160, 255),   typeB); //#
+	
 	public static final Biome icePlains			   = new Biome("Ice Plains",			12, Util.makeColor(255, 255, 255),   typeE);
 	public static final Biome iceMountains		   = new Biome("Ice Mountains",		    13, Util.makeColor(160, 160, 160),   typeG);
 	public static final Biome mushroomIsland	   = new Biome("Mushroom Island",	    14, Util.makeColor(255, 0, 255),	 typeL);
-	public static final Biome mushroomIslandShore  = new Biome("Mushroom Island Shore", 15, Util.makeColor(160, 0, 255),	 typeJ);
-	public static final Biome beach				   = new Biome("Beach",				    16, Util.makeColor(250, 222, 85),	 typeJ);
+	
+	public static final Biome mushroomIslandShore  = new Biome("Mushroom Island Shore", 15, Util.makeColor(160, 0, 255),	 typeJ); //#
+	public static final Biome beach				   = new Biome("Beach",				    16, Util.makeColor(250, 222, 85),	 typeJ); //#
+	
 	public static final Biome desertHills		   = new Biome("Desert Hills",		    17, Util.makeColor(210, 95, 18),	 typeG);
 	public static final Biome forestHills		   = new Biome("Forest Hills",		    18, Util.makeColor(34, 85, 28),	     typeG);
 	public static final Biome taigaHills		   = new Biome("Taiga Hills",		    19, Util.makeColor(22, 57, 51),	     typeG);
@@ -45,9 +51,13 @@ public class Biome {
 	public static final Biome jungle			   = new Biome("Jungle",				21, Util.makeColor(83, 123, 9),	     typeA);
 	public static final Biome jungleHills		   = new Biome("Jungle Hills",		    22, Util.makeColor(44, 66, 5),	     typeG);
 	public static final Biome jungleEdge		   = new Biome("Jungle Edge",		    23, Util.makeColor(98, 139, 23),	 typeA);
-	public static final Biome deepOcean			   = new Biome("Deep Ocean",			24, Util.makeColor(0, 0, 48),		 typeD);
+	
+	public static final Biome deepOcean			   = new Biome("Deep Ocean",			24, Util.makeColor(0, 0, 48),		 typeD); //#
+	
 	public static final Biome stoneBeach		   = new Biome("Stone Beach",		    25, Util.makeColor(162, 162, 132),   typeK);
-	public static final Biome coldBeach			   = new Biome("Cold Beach",			26, Util.makeColor(250, 240, 192),   typeJ);
+	
+	public static final Biome coldBeach			   = new Biome("Cold Beach",			26, Util.makeColor(250, 240, 192),   typeJ); //#
+	
 	public static final Biome birchForest		   = new Biome("Birch Forest",		    27, Util.makeColor(48, 116, 68),	 typeA);
 	public static final Biome birchForestHills	   = new Biome("Birch Forest Hills",	28, Util.makeColor(31, 95, 50),	     typeG);
 	public static final Biome roofedForest		   = new Biome("Roofed Forest",		    29, Util.makeColor(64, 81, 26),	     typeA);
